@@ -19,6 +19,10 @@
   .ten-or-less{
     color:red;
   }
+  #controls{
+    text-align: center;
+    margin:auto;
+  }
   .twenty-or-less{
     color:orange;
   }
@@ -29,28 +33,42 @@
     color:purple;
   }
   .forty-or-less{
-    color:brown;
+    color:#286090;
   }
   .emergency {
  -webkit-animation: cc 1s linear 1s infinite alternate;
  animation: cc 1s linear 1s infinite alternate;
  color: #f00;
   }
+.paused{
+   -webkit-animation: pp 1s linear 1s infinite alternate;
+ animation: pp 1s linear 1s infinite alternate;
+ color: #000;
+}
+#pause{
+  margin:auto;
+  text-align: center;
+}
 
 @-webkit-keyframes cc{
  0%   { color: #fff;}  
- 10%  { color: #f00;}
- 25%  { color: #fff;}
  50%  { color: #f00;}
- 75%  { color: #fff;}
  100% { color: #f00;}
 }
 
 @keyframes cc{
  0%   { color: #fff;}
- 10%  { color: #f00; }
- 25%  { color: #fff;}
  50%  { color: #f00;}
- 75%  { color: #fff;}
  100% { color: #f00;}
+}
+@-webkit-keyframes pp{
+ 0%   { color: #fff;}  
+ 50%  { color: #000;}
+ 100% { color: #fff;}
+}
+
+@keyframes pp{
+ 0%   { color: #fff;}
+ 50%  { color: #000;}
+ 100% { color: #fff;}
 }
