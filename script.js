@@ -21,14 +21,17 @@ function tick(){
 
         timeDisplay.setAttribute("class", "emergency");
      }
-     else if (secondReamaining < 10){
+     else if (secondReamaining <= 10){
         timeDisplay.setAttribute("class", "ten-or-less");
      }
-     else if(secondReamaining < 20){
+     else if(secondReamaining <= 20){
         timeDisplay.setAttribute("class", "twenty-or-less");       
      }
-   else if(secondReamaining < 30){
+   else if(secondReamaining <= 30){
         timeDisplay.setAttribute("class", "thirty-or-less");       
+     }
+    else if(secondReamaining <= 40){
+        timeDisplay.setAttribute("class", "forty-or-less");       
      }
 
     if (secondReamaining === 0){
@@ -54,7 +57,7 @@ function tick(){
         document.getElementById("minutes").value = "";
         return false; 
     } else if (minutes < 0 ){
-        document.getElementById("error").innerHTML = "Dont be so negative, enter a possitive  number!";
+        document.getElementById("error").innerHTML = "Dont be so negative, enter a possitive number!";
         document.getElementById("minutes").value = "";
     } else{
         document.getElementById("error").innerHTML = "";
@@ -70,6 +73,12 @@ window.onload = function(){
     inputMinutes.setAttribute("id", "minutes");
     inputMinutes.setAttribute("class", "form-control");
     inputMinutes.setAttribute("type", "text");
+
+
+    var pauseButton = document.createElement("input");
+    startButton.setAttribute("type", "button");
+    startButton.setAttribute("class", "btn btn-primary")
+    startButton.setAttribute("value", "Pause");
 
     var startButton = document.createElement("input");
     startButton.setAttribute("type", "button");
