@@ -28,6 +28,9 @@
   .thirty-or-less{
     color:purple;
   }
+  .forty-or-less{
+    color:brown;
+  }
   .emergency {
  -webkit-animation: cc 1s linear 1s infinite alternate;
  animation: cc 1s linear 1s infinite alternate;
@@ -35,7 +38,8 @@
   }
 
 @-webkit-keyframes cc{
- 0%   { color: #f00;}
+ 0%   { color: #fff;}  
+ 10%  { color: #f00;}
  25%  { color: #fff;}
  50%  { color: #f00;}
  75%  { color: #fff;}
@@ -43,7 +47,8 @@
 }
 
 @keyframes cc{
- 0%   { color: #f00;}
+ 0%   { color: #fff;}
+ 10%  { color: #f00; }
  25%  { color: #fff;}
  50%  { color: #f00;}
  75%  { color: #fff;}
