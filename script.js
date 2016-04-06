@@ -5,11 +5,11 @@
 
 function resetPage(){
     document.getElementById("inputArea").style.display = "block";
-
     document.getElementById("minutes").value = "";
     timeDisplay.setAttribute("class", ""); 
     document.getElementById("pause").style.display = "none"; 
 }
+
 function tick(){
     var min = Math.floor(secondReamaining / 60),
         sec = secondReamaining - (min * 60);
@@ -18,7 +18,7 @@ function tick(){
         sec = "0" + sec;
      }  
      var message = min + ":" + sec;
-     timeDisplay.innerHTML = message;
+     timeDisplay.innerHTML = secondReamaining.toString().toHHMMSS(); //message;
 
     if (secondReamaining <= 5){
 
@@ -40,7 +40,7 @@ function tick(){
         timeDisplay.setAttribute("class", ""); 
      }
         
-    if (secondReamaining === 0){
+    if (secondReamaining === 0.00){
         clearInterval(intervalHandle);
         timeDisplay.innerHTML = "Done!";
         resetPage();
@@ -85,6 +85,7 @@ function startCountdown(){
 window.onload = function(){
     var inputMinutes = document.createElement("input");
     inputMinutes.setAttribute("id", "minutes");
+    inputMinutes.setAttribute("placeholder", "00.00");    
     inputMinutes.setAttribute("class", "form-control");
     inputMinutes.setAttribute("type", "text");
 
@@ -113,6 +114,18 @@ window.onload = function(){
     document.getElementById("inputArea").appendChild(startButton);
     document.getElementById("controls").appendChild(pauseButton); 
     document.getElementById("pause").appendChild(span);
-    pauseButton.style.display = "none"; 
-;   
+    pauseButton.style.display = "none";    
 };
+
+String.prototype.toHHMMSS = function () {
+    var sec_num = parseInt(this, 10); // don't forget the second param
+    var hours   = Math.floor(sec_num / 3600);
+    var minutes = Math.floor((sec_num - (hours * 3600)) / 60);
+    var seconds = sec_num - (hours * 3600) - (minutes * 60);
+
+    if (hours   < 10) {hours   = "0"+hours;}
+    if (minutes < 10) {minutes = "0"+minutes;}
+    if (seconds < 10) {seconds = "0"+seconds;}
+    var time    = hours+':'+minutes+':'+seconds;
+    return time;
+}
