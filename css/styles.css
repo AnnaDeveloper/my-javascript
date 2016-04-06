@@ -52,13 +52,19 @@
 
 @-webkit-keyframes cc{
  0%   { color: #fff;}  
- 50%  { color: #f00;}
+ 20%  { color: #f00;}
+ 40%  { color: #fff;}
+ 60%  { color: #f00;}  
+ 80%  { color: #fff;}
  100% { color: #f00;}
 }
 
 @keyframes cc{
- 0%   { color: #fff;}
- 50%  { color: #f00;}
+ 0%   { color: #fff;}  
+ 20%  { color: #f00;}
+ 40%  { color: #fff;}
+ 60%  { color: #f00;}  
+ 80%  { color: #fff;}
  100% { color: #f00;}
 }
 @-webkit-keyframes pp{

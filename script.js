@@ -8,7 +8,7 @@ function resetPage(){
 
     document.getElementById("minutes").value = "";
     timeDisplay.setAttribute("class", ""); 
-    document.getElementById("pause").style.display = "none;"; 
+    document.getElementById("pause").style.display = "none"; 
 }
 function tick(){
     var min = Math.floor(secondReamaining / 60),
