@@ -13,8 +13,6 @@
   }
    p#error{
       color:red;
-      font-style: italic;
-      font-size: 2em;
   }
   .ten-or-less{
     color:red;

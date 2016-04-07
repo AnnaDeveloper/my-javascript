@@ -58,12 +58,12 @@ function pauseCountdown(){
 
 function startCountdown(){
  // get contents of the "minutes" text box
-    var minutes = document.getElementById("minutes").value,
-     errorMessage = document.createElement("p");
+    var minutes = document.getElementById("minutes").value;
+    //var errorMessage = document.createElement("p");
 
      timeDisplay.innerHTML = "";
-     errorMessage.setAttribute("id", "error");
-     document.getElementById("inputArea").appendChild(errorMessage);
+     //errorMessage.setAttribute("id", "error");
+    // document.getElementById("inputArea").appendChild(errorMessage);
 //check if it is not number
     if(isNaN(minutes) || minutes == ""){
         document.getElementById("error").innerHTML = "Please enter a number!";
@@ -73,7 +73,7 @@ function startCountdown(){
         document.getElementById("error").innerHTML = "Dont be so negative, enter a possitive number!";
         document.getElementById("minutes").value = "";
     } else{
-        document.getElementById("error").innerHTML = "";
+        //document.getElementById("error").innerHTML = "";
         secondReamaining = minutes * 60;
         intervalHandle = setInterval(tick, 1000);
         document.getElementById("inputArea").style.display = "none"; 
