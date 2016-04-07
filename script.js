@@ -8,6 +8,7 @@ function resetPage(){
     document.getElementById("minutes").value = "";
     timeDisplay.setAttribute("class", ""); 
     document.getElementById("pause").style.display = "none"; 
+    document.getElementById("reset").style.display = "none"; 
 }
 
 function tick(){
@@ -54,6 +55,21 @@ function tick(){
 }
 function pauseCountdown(){
     running = !running; 
+    document.getElementById("pause").setAttribute("class", "");
+    document.getElementById("pauseSpan").setAttribute("class", "");
+    if (!running){
+        document.getElementById("pause").setAttribute("class", "btn btn-success btn-lg");       
+        document.getElementById("pauseSpan").setAttribute("class", "glyphicon glyphicon-play"); 
+    }else {
+        document.getElementById("pause").setAttribute("class", "btn btn-danger btn-lg");
+        document.getElementById("pauseSpan").setAttribute("class", "glyphicon glyphicon-pause"); 
+    }
+}
+
+function resetCountdown(){
+    clearInterval(intervalHandle);
+    secondReamaining = 0.00;
+    resetPage();
 }
 
 function startCountdown(){
@@ -78,6 +94,7 @@ function startCountdown(){
         intervalHandle = setInterval(tick, 1000);
         document.getElementById("inputArea").style.display = "none"; 
         document.getElementById("pause").style.display = "block"; 
+        document.getElementById("reset").style.display = "block"; 
         return true;
     }
 }
@@ -99,9 +116,25 @@ window.onload = function(){
     pauseButton.setAttribute("class", "btn btn-danger btn-lg")
     pauseButton.setAttribute("value", "Pause");
     pauseButton.setAttribute("id", "pause");
+
+    var resetButton = document.createElement("button");
+    resetButton.setAttribute("type", "submit");
+    resetButton.setAttribute("class", "btn btn-warning btn-lg")
+    resetButton.setAttribute("value", "Reset");
+    resetButton.setAttribute("id", "reset");
     
     var span = document.createElement("span");
     span.setAttribute("class", "glyphicon glyphicon-pause");
+    span.setAttribute("id", "pauseSpan");
+
+    document.getElementById("inputArea").appendChild(inputMinutes);
+    document.getElementById("inputArea").appendChild(startButton);
+    document.getElementById("controls").appendChild(pauseButton); 
+    document.getElementById("pause").appendChild(span);
+    document.getElementById("controls").appendChild(resetButton);
+    document.getElementById("reset").innerHTML = "<span class= \"glyphicon glyphicon-refresh\"></span>";
+    pauseButton.style.display = "none"; 
+    resetButton.style.display = "none";   
 
     startButton.onclick = function(){
         startCountdown();
@@ -110,11 +143,9 @@ window.onload = function(){
     pauseButton.onclick = function(){
         pauseCountdown();
     };
-    document.getElementById("inputArea").appendChild(inputMinutes);
-    document.getElementById("inputArea").appendChild(startButton);
-    document.getElementById("controls").appendChild(pauseButton); 
-    document.getElementById("pause").appendChild(span);
-    pauseButton.style.display = "none";    
+    resetButton.onclick = function(){
+        resetCountdown();
+    };
 };
 
 String.prototype.toHHMMSS = function () {

@@ -1,60 +1,64 @@
- 
-   body {
-        font-family: sans-serif;
-        color: #333;
-        text-align: center;
-   }
-   #container {
-       width: 400px;
-       margin: auto;
-   }
-   h1 { 
-    font-size: 5em; 
-  }
-   p#error{
-      color:red;
-  }
-  .ten-or-less{
-    color:red;
-  }
-  #controls{
-    text-align: center;
-    margin:auto;
-  }
-  .twenty-or-less{
-    color:orange;
-  }
-  .btn-primary{
-    margin: 1em;
-  }
-  .thirty-or-less{
-    color:purple;
-  }
-  .forty-or-less{
-    color:#286090;
-  }
-  .emergency {
- -webkit-animation: cc 1s linear 1s infinite alternate;
- animation: cc 1s linear 1s infinite alternate;
- color: #f00;
-  }
-.paused{
-   -webkit-animation: pp 1s linear 1s infinite alternate;
- animation: pp 1s linear 1s infinite alternate;
- color: #000;
-}
-#pause{
-  margin:auto;
+/* CSS */
+body{
+  font-family: sans-serif;
+  color: #333;
   text-align: center;
+}
+#container{
+  width: 400px;
+  margin: auto;
+}
+h1{ 
+  font-size: 5em; 
+}
+h1 > span{
+  display: block!important;
+}
+p#error{
+  color:red;
+}
+.ten-or-less{
+  color:red;
+}
+#controls{
+  text-align: center;
+  margin:auto;
+}
+.twenty-or-less{
+  color:orange;
+}
+.btn-primary{
+  margin: 1em;
+}
+.thirty-or-less{
+  color:purple;
+}
+.forty-or-less{
+  color:#286090;
+}
+.emergency{
+  -webkit-animation: cc 1s linear 1s infinite alternate;
+  animation: cc 1s linear 1s infinite alternate;
+  color: #f00;
+}
+.paused{
+  -webkit-animation: pp 1s linear 1s infinite alternate;
+  animation: pp 1s linear 1s infinite alternate;
+  color: #00ADDC;
+}
+#pause, #reset{
+ float:left;
+ margin:5px 1%;
+ width:45%;
 }
 
 @-webkit-keyframes cc{
- 0%   { color: #fff;}  
- 20%  { color: #f00;}
- 40%  { color: #fff;}
- 60%  { color: #f00;}  
- 80%  { color: #fff;}
- 100% { color: #f00;}
+  0%   { color: #fff;}  
+  20%  { color: #f00;}
+  40%  { color: #fff;}
+  60%  { color: #f00;}  
+  80%  { color: #fff;}
+  100% { color: #f00;}
 }
 
 @keyframes cc{
@@ -67,12 +71,12 @@
 }
 @-webkit-keyframes pp{
  0%   { color: #fff;}  
- 50%  { color: #000;}
+ 50%  { color: #00ADDC;}
  100% { color: #fff;}
 }
 
 @keyframes pp{
  0%   { color: #fff;}
- 50%  { color: #000;}
+ 50%  { color: #00ADDC;}
  100% { color: #fff;}
 }
