@@ -14,9 +14,15 @@ h1{
 h1 > span{
   display: block!important;
 }
+#minutes{    font-size: 2em;
+    height: 2em;
+    margin: 0.7em auto;
+    text-align: center;
+    width: 5em;}
 p#error{
   color:red;
 }
+#time{font-size: 4em;}
 .ten-or-less{
   color:red;
 }

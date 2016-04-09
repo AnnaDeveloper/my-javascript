@@ -14,7 +14,6 @@ function resetPage(){
 function tick(){
     var min = Math.floor(secondReamaining / 60),
         sec = secondReamaining - (min * 60);
-
      if (sec < 10){
         sec = "0" + sec;
      }  
@@ -22,7 +21,6 @@ function tick(){
      timeDisplay.innerHTML = secondReamaining.toString().toHHMMSS(); //message;
 
     if (secondReamaining <= 5){
-
         timeDisplay.setAttribute("class", "emergency");
      }
      else if (secondReamaining <= 10){
@@ -47,7 +45,7 @@ function tick(){
         resetPage();
      }
     if (running){
-     secondReamaining --;
+        secondReamaining --;
     }
     else{
         timeDisplay.setAttribute("class", "paused");
@@ -70,7 +68,7 @@ function resetCountdown(){
     clearInterval(intervalHandle);
     secondReamaining = 0.00;
     resetPage();
-     timeDisplay.innerHTML = secondReamaining.toString().toHHMMSS(); 
+    timeDisplay.innerHTML = secondReamaining.toString().toHHMMSS(); 
 }
 
 function startCountdown(){
@@ -78,9 +76,7 @@ function startCountdown(){
     var minutes = document.getElementById("minutes").value;
     //var errorMessage = document.createElement("p");
 
-     timeDisplay.innerHTML = "";
-     //errorMessage.setAttribute("id", "error");
-    // document.getElementById("inputArea").appendChild(errorMessage);
+    timeDisplay.innerHTML = "";
 //check if it is not number
     if(isNaN(minutes) || minutes == ""){
         document.getElementById("error").innerHTML = "Please enter a number!";
@@ -109,18 +105,20 @@ window.onload = function(){
 
     var startButton = document.createElement("input");
     startButton.setAttribute("type", "button");
-    startButton.setAttribute("class", "btn btn-primary")
-    startButton.setAttribute("value", "Start Countdown");
+    startButton.setAttribute("class", "btn btn-primary btn-lg");
+    //startButton.setAttribute("id", "startc");
+    startButton.setAttribute("value", "START");
+    
 
     var pauseButton = document.createElement("button");
     pauseButton.setAttribute("type", "submit");
-    pauseButton.setAttribute("class", "btn btn-danger btn-lg")
+    pauseButton.setAttribute("class", "btn btn-danger btn-lg");
     pauseButton.setAttribute("value", "Pause");
     pauseButton.setAttribute("id", "pause");
 
     var resetButton = document.createElement("button");
     resetButton.setAttribute("type", "submit");
-    resetButton.setAttribute("class", "btn btn-warning btn-lg")
+    resetButton.setAttribute("class", "btn btn-warning btn-lg");
     resetButton.setAttribute("value", "Reset");
     resetButton.setAttribute("id", "reset");
     
@@ -130,6 +128,7 @@ window.onload = function(){
 
     document.getElementById("inputArea").appendChild(inputMinutes);
     document.getElementById("inputArea").appendChild(startButton);
+    //document.getElementById("startc").innerHTML = "<span class= \"glyphicon glyphicon-play-circle\"></span>";
     document.getElementById("controls").appendChild(pauseButton); 
     document.getElementById("pause").appendChild(span);
     document.getElementById("controls").appendChild(resetButton);
@@ -160,4 +159,4 @@ String.prototype.toHHMMSS = function () {
     if (seconds < 10) {seconds = "0"+seconds;}
     var time    = hours+':'+minutes+':'+seconds;
     return time;
-}
+};
